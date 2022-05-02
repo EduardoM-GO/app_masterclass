@@ -1,0 +1,26 @@
+[
+    {
+        "id": "1",
+        "titulo": "Animações",
+        "pathIcon": "assets/logos/Icon awesome-running.png",
+        "descricao": "Estudos sobre animações implícitas e controladas, contendo 4 exercícios e 2 estudos",
+        "linkGit": "",
+        "quantidade": 4
+    },
+    {
+        "id": "2",
+        "titulo": "Leitura de Mockup",
+        "pathIcon": "assets/logos/Icon awesome-glasses.png",
+        "descricao": "Aplicação da técnica de leitura de mockup, contendo 2 exercícios",
+        "linkGit": "",
+        "quantidade": 2
+    },
+    {
+        "id": "3",
+        "titulo": "Playground",
+        "pathIcon": "assets/logos/Icon material-toys.png",
+        "descricao": "Ambiente destinado a testes e estudos em geral",
+        "linkGit": "",
+        "quantidade": 3
+    }
+]
