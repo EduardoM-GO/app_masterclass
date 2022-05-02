@@ -1,0 +1,27 @@
+{
+    "nome": "Eduardo Matheus Martins Lima",
+    "urlFoto": "https://scontent.frvd2-1.fna.fbcdn.net/v/t39.30808-6/264822897_4359931757468945_4594638262676035048_n.jpg?_nc_cat=103&ccb=1-5&_nc_sid=09cbfe&_nc_eui2=AeGi-B2BuRZOtnyijuDchA5uUZnlIHjrhvBRmeUgeOuG8J3x3NGs6NtMPRJoqr4SFMk6WvCw_6yqvrmTcrI-Xdyg&_nc_ohc=JAb_ZX_jb5sAX93uKr6&_nc_ht=scontent.frvd2-1.fna&oh=00_AT8vU4OGKrmN0X65LQA5F9EoEAETGvcUZyRK4Fd8DOcKOQ&oe=62746B58",
+    "descricao": "Duis rhoncus dui venenatis consequat porttitor. Etiam aliquet congue consequat. In posuere, nunc sit amet laoreet blandit, urna sapien.",
+    "whatsapp": "",
+    "gitHub": "",
+    "instagram": "",
+    "facebook": "",
+    "favoritas": [{
+        "id": 0,
+        "urlLogo": "",
+        "nome": "Flutter"
+    }, {
+        "id": 1,
+        "urlLogo": "",
+        "nome": "Dart"
+    }],
+    "habilidades": [{
+        "id": 0,
+        "percentualCompetencia": 60,
+        "nome": "Dart/Flutter"
+    }, {
+        "id": 1,
+        "percentualCompetencia": 40,
+        "nome": "Java"
+    }]
+}

@@ -21,6 +21,11 @@ class ThemeCustom {
         appBarTheme:
             AppBarTheme(color: CorDark.scaffoldBackground, elevation: 0),
         cardColor: CorDark.cardBackground,
+        cardTheme: CardTheme(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(20),
+            ),
+            margin: const EdgeInsets.all(16.0)),
         highlightColor: CorDark.textHighlight,
         textTheme: TextTheme(
           headline1: FonteCustom.headline1,

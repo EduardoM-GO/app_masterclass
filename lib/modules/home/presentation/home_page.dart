@@ -1,6 +1,5 @@
-import 'package:app_masterclass/modules/home/domain/entities/atividade.dart';
-import 'package:app_masterclass/modules/home/domain/user_case/get_atividades.dart';
-import 'package:app_masterclass/modules/home/presentation/widgets/card_widget.dart';
+import 'package:app_masterclass/modules/home/presentation/pages/sobre_dev/sobre_dev_page.dart';
+import 'package:app_masterclass/modules/home/presentation/widgets/atividades_page.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -11,10 +10,12 @@ class HomePage extends StatefulWidget {
   State<HomePage> createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
+  late final TabController _tabController;
   @override
   void initState() {
     super.initState();
+    _tabController = TabController(length: 3, vsync: this);
   }
 
   @override
@@ -39,36 +40,39 @@ class _HomePageState extends State<HomePage> {
                   ?.copyWith(color: Theme.of(context).highlightColor)),
         ),
       ),
-      body: Padding(
-        padding: const EdgeInsets.only(top: 16.0),
-        child: FutureBuilder<List<Atividade>>(
-            future: GetAtividade().call(),
-            builder: (context, snap) {
-              if (snap.hasData) {
-                return ListView.builder(
-                  itemCount: snap.data?.length,
-                  itemBuilder: (context, index) => CardWidget(
-                    atividade: snap.data![index],
-                  ),
-                );
-              } else {
-                return const Center(child: CircularProgressIndicator());
-              }
-            }),
-      ),
+      body: TabBarView(controller: _tabController, children: [
+        AtividadesPage(),
+        AtividadesPage(),
+        SobreDevPage(),
+      ]),
       bottomNavigationBar: Padding(
         padding: const EdgeInsets.all(19.0),
         child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             InkWell(
+              onTap: () {
+                setState(() {
+                  _tabController.index = 0;
+                });
+              },
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Image.asset(
-                    'assets/logos/Icon feather-target.png',
-                    width: 24,
+                  Container(
+                    alignment: Alignment.center,
+                    width: 60,
+                    height: 32,
+                    decoration: _tabController.index == 0
+                        ? BoxDecoration(
+                            borderRadius: BorderRadius.circular(20),
+                            color: Theme.of(context).cardColor)
+                        : null,
+                    child: Image.asset(
+                      'assets/logos/Icon feather-target.png',
+                      width: 24,
+                    ),
                   ),
                   const SizedBox(
                     height: 8,
@@ -82,19 +86,35 @@ class _HomePageState extends State<HomePage> {
                 ],
               ),
             ),
-            Container(
+            const SizedBox(
               height: 50,
-              width: 2,
-              color: Theme.of(context).colorScheme.surface,
+              child: VerticalDivider(
+                thickness: 1,
+              ),
             ),
             InkWell(
+              onTap: () {
+                setState(() {
+                  _tabController.index = 1;
+                });
+              },
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  const Icon(
-                    FontAwesomeIcons.github,
-                    size: 24,
+                  Container(
+                    alignment: Alignment.center,
+                    width: 60,
+                    height: 32,
+                    decoration: _tabController.index == 1
+                        ? BoxDecoration(
+                            borderRadius: BorderRadius.circular(20),
+                            color: Theme.of(context).cardColor)
+                        : null,
+                    child: const Icon(
+                      FontAwesomeIcons.github,
+                      size: 24,
+                    ),
                   ),
                   const SizedBox(
                     height: 8,
@@ -108,19 +128,35 @@ class _HomePageState extends State<HomePage> {
                 ],
               ),
             ),
-            Container(
+            const SizedBox(
               height: 50,
-              width: 2,
-              color: Theme.of(context).colorScheme.surface,
+              child: VerticalDivider(
+                thickness: 1,
+              ),
             ),
             InkWell(
+              onTap: () {
+                setState(() {
+                  _tabController.index = 2;
+                });
+              },
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  const Icon(
-                    FontAwesomeIcons.userLarge,
-                    size: 24,
+                  Container(
+                    alignment: Alignment.center,
+                    width: 60,
+                    height: 32,
+                    decoration: _tabController.index == 2
+                        ? BoxDecoration(
+                            borderRadius: BorderRadius.circular(20),
+                            color: Theme.of(context).cardColor)
+                        : null,
+                    child: const Icon(
+                      FontAwesomeIcons.userLarge,
+                      size: 24,
+                    ),
                   ),
                   const SizedBox(
                     height: 8,
