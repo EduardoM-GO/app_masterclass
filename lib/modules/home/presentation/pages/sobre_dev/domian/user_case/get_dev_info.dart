@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'dart:developer';
 
 import 'package:app_masterclass/modules/home/presentation/pages/sobre_dev/domian/entities/dev.dart';
 import 'package:flutter/services.dart' show rootBundle;

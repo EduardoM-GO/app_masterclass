@@ -1,3 +1,4 @@
+import 'package:app_masterclass/main.dart';
 import 'package:app_masterclass/modules/home/presentation/pages/sobre_dev/sobre_dev_page.dart';
 import 'package:app_masterclass/modules/home/presentation/widgets/atividades_page.dart';
 import 'package:flutter/material.dart';
@@ -18,6 +19,17 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
     _tabController = TabController(length: 3, vsync: this);
   }
 
+  String getTitle(int index) {
+    switch (index) {
+      case 0:
+        return 'Atividades';
+      case 1:
+        return 'Repositórios';
+      default:
+        return 'Sobre o dev';
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,24 +39,35 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
           contentPadding: EdgeInsets.zero,
           leading: Image.asset('assets/logos/logo.png', width: 48),
           title: Text(
-            'Atividades',
+            getTitle(_tabController.index),
             style: Theme.of(context)
                 .textTheme
                 .headline6
                 ?.copyWith(color: Theme.of(context).highlightColor),
           ),
-          subtitle: Text('Flutterando Masterclass',
-              style: Theme.of(context)
-                  .textTheme
-                  .caption
-                  ?.copyWith(color: Theme.of(context).highlightColor)),
+          subtitle: Text(
+            'Flutterando Masterclass',
+            style: Theme.of(context)
+                .textTheme
+                .caption
+                ?.copyWith(color: Theme.of(context).highlightColor),
+          ),
+          trailing: IconButton(
+            onPressed: () => MainWidget.of(context)?.changeTheme(),
+            icon: const Icon(FontAwesomeIcons.solidMoon),
+          ),
         ),
       ),
-      body: TabBarView(controller: _tabController, children: [
-        AtividadesPage(),
-        AtividadesPage(),
-        SobreDevPage(),
-      ]),
+      body: Padding(
+        padding: const EdgeInsets.only(top: 16.0),
+        child: TabBarView(controller: _tabController, children: const [
+          AtividadesPage(),
+          Center(
+            child: CircularProgressIndicator(),
+          ),
+          SobreDevPage(),
+        ]),
+      ),
       bottomNavigationBar: Padding(
         padding: const EdgeInsets.all(19.0),
         child: Row(
@@ -72,6 +95,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                     child: Image.asset(
                       'assets/logos/Icon feather-target.png',
                       width: 24,
+                      color: Theme.of(context).iconTheme.color,
                     ),
                   ),
                   const SizedBox(

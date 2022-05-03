@@ -1,19 +1,21 @@
 import 'dart:convert';
 
+import 'package:app_masterclass/modules/home/domain/entities/exercicio.dart';
+
 class Atividade {
   final String id;
   final String titulo;
   final String pathIcon;
   final String descricao;
   final String linkGit;
-  final int quantidade;
+  final List<Exercicio> exercicios;
   Atividade({
     required this.id,
     required this.titulo,
     required this.pathIcon,
     required this.descricao,
     required this.linkGit,
-    required this.quantidade,
+    required this.exercicios,
   });
 
   Map<String, dynamic> toMap() {
@@ -23,7 +25,7 @@ class Atividade {
       'pathIcon': pathIcon,
       'descricao': descricao,
       'linkGit': linkGit,
-      'quantidade': quantidade,
+      'exercicios': exercicios.map((x) => x.toMap()).toList(),
     };
   }
 
@@ -34,7 +36,8 @@ class Atividade {
       pathIcon: map['pathIcon'] ?? '',
       descricao: map['descricao'] ?? '',
       linkGit: map['linkGit'] ?? '',
-      quantidade: map['quantidade']?.toInt() ?? 0,
+      exercicios: List<Exercicio>.from(
+          map['exercicios']?.map((x) => Exercicio.fromMap(x))),
     );
   }
 

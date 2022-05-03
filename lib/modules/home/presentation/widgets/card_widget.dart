@@ -1,3 +1,5 @@
+import 'package:app_masterclass/core/routes/routes_app.dart';
+import 'package:app_masterclass/modules/exercicios/presentation/execicios_page.dart';
 import 'package:app_masterclass/modules/home/domain/entities/atividade.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -32,6 +34,7 @@ class CardWidget extends StatelessWidget {
                   ),
                   child: Image.asset(
                     atividade.pathIcon,
+                    color: Theme.of(context).cardColor,
                   ),
                 ),
                 const SizedBox(
@@ -51,7 +54,7 @@ class CardWidget extends StatelessWidget {
                       text: 'Exercicios: ',
                       children: [
                         TextSpan(
-                            text: atividade.quantidade.toString(),
+                            text: atividade.exercicios.length.toString(),
                             style: Theme.of(context)
                                 .textTheme
                                 .caption
@@ -93,7 +96,20 @@ class CardWidget extends StatelessWidget {
                         ?.copyWith(color: Theme.of(context).highlightColor),
                   ),
                 ),
-                ElevatedButton(onPressed: () {}, child: const Text('Ver mais'))
+                ElevatedButton(
+                  onPressed: () => Navigator.of(context).pushNamed(
+                    '/exercicios',
+                    arguments: ExeciciosPage(
+                        topico: atividade.titulo,
+                        exercicios: atividade.exercicios),
+                  ),
+                  child: Text(
+                    'Ver mais',
+                    style: TextStyle(
+                      color: Theme.of(context).cardColor,
+                    ),
+                  ),
+                )
               ],
             ),
           ],

@@ -1,3 +1,4 @@
+import 'package:app_masterclass/modules/exercicios/presentation/execicios_page.dart';
 import 'package:app_masterclass/modules/home/presentation/home_page.dart';
 import 'package:app_masterclass/modules/splash/presentation/splash_page.dart';
 import 'package:flutter/material.dart';
@@ -11,6 +12,13 @@ class RoutesApp {
     switch (settings.name) {
       case '/home':
         return _route(settings: settings, view: const HomePage());
+      case '/exercicios':
+        return _route(
+            settings: settings,
+            view: ExeciciosPage(
+              topico: (settings.arguments as ExeciciosPage).topico,
+              exercicios: (settings.arguments as ExeciciosPage).exercicios,
+            ));
       default:
         return _route(settings: settings, view: const SplashPage());
     }
