@@ -10,7 +10,7 @@ class CardTecnologiasWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-     margin: EdgeInsets.zero,
+      margin: EdgeInsets.zero,
       child: SizedBox(
         height: 100,
         width: 94,
@@ -22,14 +22,16 @@ class CardTecnologiasWidget extends StatelessWidget {
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 28.0),
-              child: SizedBox(
-                height: 48,
-                width: 38,
-                child: tecnologia.urlLogo.isNotEmpty
-                    ? Image.network(
-                        tecnologia.urlLogo,
-                      )
-                    : const FlutterLogo(),
+              child: Center(
+                child: SizedBox(
+                  height: 48,
+                  width: 38,
+                  child: tecnologia.urlLogo.isNotEmpty
+                      ? Image.asset(
+                          tecnologia.urlLogo,
+                        )
+                      : const FlutterLogo(),
+                ),
               ),
             ),
             const SizedBox(

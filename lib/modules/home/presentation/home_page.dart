@@ -70,129 +70,134 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
       ),
       bottomNavigationBar: Padding(
         padding: const EdgeInsets.all(19.0),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        child: Stack(
           children: [
-            InkWell(
-              onTap: () {
-                setState(() {
-                  _tabController.index = 0;
-                });
-              },
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Container(
-                    alignment: Alignment.center,
-                    width: 60,
-                    height: 32,
-                    decoration: _tabController.index == 0
-                        ? BoxDecoration(
-                            borderRadius: BorderRadius.circular(20),
-                            color: Theme.of(context).cardColor)
-                        : null,
-                    child: Image.asset(
-                      'assets/logos/Icon feather-target.png',
-                      width: 24,
-                      color: Theme.of(context).iconTheme.color,
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 8,
-                  ),
-                  Text(
-                    'Atividades',
-                    style: Theme.of(context).textTheme.caption?.copyWith(
-                        color: Theme.of(context).highlightColor,
-                        fontWeight: FontWeight.normal),
-                  ),
-                ],
+            AnimatedPositioned(
+              duration: const Duration(milliseconds: 200),
+              left: (_tabController.index == 0)
+                  ? MediaQuery.of(context).size.width * 0.052
+                  : (_tabController.index == 1)
+                      ? MediaQuery.of(context).size.width * 0.364
+                      : MediaQuery.of(context).size.width * 0.687,
+              child: Container(
+                alignment: Alignment.center,
+                width: 60,
+                height: 32,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                    color: Theme.of(context).cardColor),
               ),
             ),
-            const SizedBox(
-              height: 50,
-              child: VerticalDivider(
-                thickness: 1,
-              ),
-            ),
-            InkWell(
-              onTap: () {
-                setState(() {
-                  _tabController.index = 1;
-                });
-              },
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Container(
-                    alignment: Alignment.center,
-                    width: 60,
-                    height: 32,
-                    decoration: _tabController.index == 1
-                        ? BoxDecoration(
-                            borderRadius: BorderRadius.circular(20),
-                            color: Theme.of(context).cardColor)
-                        : null,
-                    child: const Icon(
-                      FontAwesomeIcons.github,
-                      size: 24,
-                    ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                InkWell(
+                  onTap: () {
+                    setState(() {
+                      _tabController.index = 0;
+                    });
+                  },
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Container(
+                        alignment: Alignment.center,
+                        width: 60,
+                        height: 32,
+                        child: Image.asset(
+                          'assets/logos/Icon feather-target.png',
+                          width: 24,
+                          color: Theme.of(context).iconTheme.color,
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 8,
+                      ),
+                      Text(
+                        'Atividades',
+                        style: Theme.of(context).textTheme.caption?.copyWith(
+                            color: Theme.of(context).highlightColor,
+                            fontWeight: FontWeight.normal),
+                      ),
+                    ],
                   ),
-                  const SizedBox(
-                    height: 8,
+                ),
+                const SizedBox(
+                  height: 50,
+                  child: VerticalDivider(
+                    thickness: 1,
                   ),
-                  Text(
-                    'Repositórios',
-                    style: Theme.of(context).textTheme.caption?.copyWith(
-                        color: Theme.of(context).highlightColor,
-                        fontWeight: FontWeight.normal),
+                ),
+                InkWell(
+                  onTap: () {
+                    setState(() {
+                      _tabController.index = 1;
+                    });
+                  },
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Container(
+                        alignment: Alignment.center,
+                        width: 60,
+                        height: 32,
+                        child: const Icon(
+                          FontAwesomeIcons.github,
+                          size: 24,
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 8,
+                      ),
+                      Text(
+                        'Repositórios',
+                        style: Theme.of(context).textTheme.caption?.copyWith(
+                            color: Theme.of(context).highlightColor,
+                            fontWeight: FontWeight.normal),
+                      ),
+                    ],
                   ),
-                ],
-              ),
-            ),
-            const SizedBox(
-              height: 50,
-              child: VerticalDivider(
-                thickness: 1,
-              ),
-            ),
-            InkWell(
-              onTap: () {
-                setState(() {
-                  _tabController.index = 2;
-                });
-              },
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Container(
-                    alignment: Alignment.center,
-                    width: 60,
-                    height: 32,
-                    decoration: _tabController.index == 2
-                        ? BoxDecoration(
-                            borderRadius: BorderRadius.circular(20),
-                            color: Theme.of(context).cardColor)
-                        : null,
-                    child: const Icon(
-                      FontAwesomeIcons.userLarge,
-                      size: 24,
-                    ),
+                ),
+                const SizedBox(
+                  height: 50,
+                  child: VerticalDivider(
+                    thickness: 1,
                   ),
-                  const SizedBox(
-                    height: 8,
+                ),
+                InkWell(
+                  onTap: () {
+                    setState(() {
+                      _tabController.index = 2;
+                    });
+                  },
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Container(
+                        alignment: Alignment.center,
+                        width: 60,
+                        height: 32,
+                        child: const Icon(
+                          FontAwesomeIcons.userLarge,
+                          size: 24,
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 8,
+                      ),
+                      Text(
+                        'Sobre o dev',
+                        style: Theme.of(context).textTheme.caption?.copyWith(
+                            color: Theme.of(context).highlightColor,
+                            fontWeight: FontWeight.normal),
+                      ),
+                    ],
                   ),
-                  Text(
-                    'Sobre o dev',
-                    style: Theme.of(context).textTheme.caption?.copyWith(
-                        color: Theme.of(context).highlightColor,
-                        fontWeight: FontWeight.normal),
-                  ),
-                ],
-              ),
+                ),
+              ],
             ),
           ],
         ),

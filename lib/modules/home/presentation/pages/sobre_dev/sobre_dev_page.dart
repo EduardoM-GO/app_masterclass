@@ -1,9 +1,13 @@
+import 'dart:developer';
+import 'dart:io';
+
 import 'package:app_masterclass/modules/home/presentation/pages/sobre_dev/domian/entities/dev.dart';
 import 'package:app_masterclass/modules/home/presentation/pages/sobre_dev/domian/user_case/get_dev_info.dart';
 import 'package:app_masterclass/modules/home/presentation/pages/sobre_dev/widgets/card_habilidades_widget.dart';
 import 'package:app_masterclass/modules/home/presentation/pages/sobre_dev/widgets/card_tecnologias_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class SobreDevPage extends StatelessWidget {
   const SobreDevPage({Key? key}) : super(key: key);
@@ -16,6 +20,7 @@ class SobreDevPage extends StatelessWidget {
         if (!snap.hasData) {
           return const CircularProgressIndicator();
         }
+
         return SingleChildScrollView(
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 14.0),
@@ -40,7 +45,7 @@ class SobreDevPage extends StatelessWidget {
                           ),
                           shape: BoxShape.circle,
                           image: DecorationImage(
-                            image: Image.network(snap.data!.urlFoto).image,
+                            image: Image.asset(snap.data!.urlFoto).image,
                           ),
                         ),
                       ),
@@ -70,7 +75,25 @@ class SobreDevPage extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           IconButton(
-                            onPressed: () {},
+                            onPressed: () {
+                 
+                              launchUrl(
+                                Platform.isAndroid
+                                    ? Uri(
+                                        scheme: 'whatsapp',
+                                        host: 'send',
+                                        queryParameters: {
+                                            'phone': snap.data!.whatsapp
+                                          })
+                                    : Uri(
+                                        scheme: 'https',
+                                        host: 'api.whatsapp.com',
+                                        path: 'send',
+                                        queryParameters: {
+                                            'phone': snap.data!.whatsapp
+                                          }),
+                              );
+                            },
                             icon: const FaIcon(
                               FontAwesomeIcons.whatsapp,
                               size: 28,
@@ -80,7 +103,15 @@ class SobreDevPage extends StatelessWidget {
                             width: 10.0,
                           ),
                           IconButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              launchUrl(
+                                Uri(
+                                  scheme: 'https',
+                                  host: 'github.com',
+                                  path: snap.data!.gitHub,
+                                ),
+                              );
+                            },
                             icon: const FaIcon(
                               FontAwesomeIcons.githubAlt,
                               size: 28,
@@ -90,7 +121,13 @@ class SobreDevPage extends StatelessWidget {
                             width: 10.0,
                           ),
                           IconButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              launchUrl(Uri(
+                                scheme: 'https',
+                                host: 'www.instagram.com',
+                                path: snap.data!.instagram,
+                              ));
+                            },
                             icon: const FaIcon(
                               FontAwesomeIcons.instagram,
                               size: 28,
@@ -100,7 +137,13 @@ class SobreDevPage extends StatelessWidget {
                             width: 10.0,
                           ),
                           IconButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              launchUrl(Uri(
+                                scheme: 'https',
+                                host: 'www.facebook.com',
+                                path: snap.data!.facebook,
+                              ));
+                            },
                             icon: const FaIcon(
                               FontAwesomeIcons.facebookF,
                               size: 28,

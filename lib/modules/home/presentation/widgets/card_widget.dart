@@ -1,4 +1,3 @@
-import 'package:app_masterclass/core/routes/routes_app.dart';
 import 'package:app_masterclass/modules/exercicios/presentation/execicios_page.dart';
 import 'package:app_masterclass/modules/home/domain/entities/atividade.dart';
 import 'package:flutter/material.dart';
