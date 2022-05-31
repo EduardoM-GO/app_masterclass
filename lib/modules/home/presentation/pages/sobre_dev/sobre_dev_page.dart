@@ -1,4 +1,3 @@
-import 'dart:developer';
 import 'dart:io';
 
 import 'package:app_masterclass/modules/home/presentation/pages/sobre_dev/domian/entities/dev.dart';

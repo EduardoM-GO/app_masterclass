@@ -1,12 +1,10 @@
-[
-    {
+[{
         "id": "1",
         "titulo": "Animações",
         "pathIcon": "assets/logos/Icon awesome-running.png",
         "descricao": "Estudos sobre animações implícitas e controladas, contendo 4 exercícios e 2 estudos",
         "linkGit": "",
-        "exercicios": [
-            {
+        "exercicios": [{
                 "id": 1,
                 "nome": "Exercícios 01"
             },
@@ -26,8 +24,7 @@
         "pathIcon": "assets/logos/Icon awesome-glasses.png",
         "descricao": "Aplicação da técnica de leitura de mockup, contendo 2 exercícios",
         "linkGit": "",
-        "exercicios": [
-            {
+        "exercicios": [{
                 "id": 1,
                 "nome": "Exercícios 01"
             },
@@ -51,8 +48,7 @@
         "pathIcon": "assets/logos/Icon material-toys.png",
         "descricao": "Ambiente destinado a testes e estudos em geral",
         "linkGit": "",
-        "exercicios": [
-            {
+        "exercicios": [{
                 "id": 1,
                 "nome": "Exercícios 01"
             },
@@ -60,6 +56,20 @@
                 "id": 2,
                 "nome": "Exercícios 02"
             }
+        ]
+    },
+    {
+        "id": "4",
+        "titulo": "Design Patterns",
+        "pathIcon": "assets/logos/Icon material-toys.png",
+        "descricao": "DESAFIO: Faça uma validação de CPF usando apenas Dart(e matemárica).\nLogo após, crie uma tela executando a regra de validação.",
+        "linkGit": "",
+        "exercicios": [{
+                "id": 1,
+                "nome": "Validação de CPF",
+                "rota": "/design_patterns/exercicios"
+            }
+
         ]
     }
 ]
