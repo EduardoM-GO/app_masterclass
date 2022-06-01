@@ -75,7 +75,7 @@ class YourMoneyPage extends StatelessWidget {
                       width: 20,
                       child: Image(
                         image: Image.asset(
-                          'lib/assets/image/G_google.png',
+                          'assets/logos/G_google.png',
                         ).image,
                       ),
                     ),

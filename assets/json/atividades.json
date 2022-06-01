@@ -28,7 +28,7 @@
         "titulo": "Leitura de Mockup",
         "pathIcon": "assets/logos/Icon awesome-glasses.png",
         "descricao": "Aplicação da técnica de leitura de mockup, contendo 2 exercícios",
-        "linkGit": "",
+        "linkGit": "EduardoM-GO/app_masterclass/tree/main/lib/modules/exercicios/pages/mockup",
         "exercicios": [{
                 "id": 1,
                 "nome": "Get your Money Under Control",

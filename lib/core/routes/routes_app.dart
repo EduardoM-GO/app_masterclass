@@ -1,5 +1,6 @@
 import 'package:app_masterclass/modules/exercicios/pages/design_patterns/page/validador_cpf_page.dart';
 import 'package:app_masterclass/modules/exercicios/pages/mockup/tinder/tinder_page.dart';
+import 'package:app_masterclass/modules/exercicios/pages/mockup/your_money/your_money_page.dart';
 import 'package:app_masterclass/modules/exercicios/presentation/execicios_page.dart';
 import 'package:app_masterclass/modules/home/presentation/home_page.dart';
 import 'package:app_masterclass/modules/splash/presentation/splash_page.dart';
@@ -25,7 +26,7 @@ class RoutesApp {
       case '/design_patterns/exercicios':
         return _route(settings: settings, view: const ValidadorCpfPage());
       case '/mockup/your_money':
-        return _route(settings: settings, view: const TinderPage());
+        return _route(settings: settings, view: const YourMoneyPage());
       case '/mockup/tinder':
         return _route(settings: settings, view: const TinderPage());
       default:

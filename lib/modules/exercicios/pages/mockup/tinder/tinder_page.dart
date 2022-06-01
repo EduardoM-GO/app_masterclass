@@ -26,7 +26,10 @@ class TinderPage extends StatelessWidget {
         Scaffold(
           backgroundColor: Colors.transparent,
           appBar: AppBar(
-            leading: const Icon(Icons.arrow_back_ios),
+            leading: IconButton(
+              onPressed: () => Navigator.of(context).pop(),
+              icon: const Icon(Icons.arrow_back_ios),
+            ),
             backgroundColor: Colors.transparent,
             elevation: 0,
             title: const Text(''),
@@ -42,7 +45,7 @@ class TinderPage extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     ImageIcon(
-                      Image.asset('lib/assets/image/tinder.png').image,
+                      Image.asset('assets/logos/tinder.png').image,
                       color: Colors.white,
                       size: 40,
                     ),
@@ -101,7 +104,7 @@ class TinderPage extends StatelessWidget {
                 const SizedBox(
                   height: 3,
                 ),
-                  Align(
+                Align(
                   alignment: Alignment.center,
                   child: Text.rich(
                     TextSpan(
