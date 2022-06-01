@@ -3,7 +3,7 @@
         "titulo": "Animações",
         "pathIcon": "assets/logos/Icon awesome-running.png",
         "descricao": "Estudos sobre animações implícitas e controladas, contendo 4 exercícios e 2 estudos",
-        "linkGit": "",
+        "linkGit": "EduardoM-GO/app_masterclass/tree/main/lib/modules/exercicios/pages/animations",
         "exercicios": [{
                 "id": 1,
                 "nome": "Animações implícitas - Exercício 1"
