@@ -1,6 +1,6 @@
 import 'package:app_masterclass/main.dart';
 import 'package:app_masterclass/modules/home/presentation/pages/sobre_dev/sobre_dev_page.dart';
-import 'package:app_masterclass/modules/home/presentation/widgets/atividades_page.dart';
+import 'package:app_masterclass/modules/home/presentation/pages/atividade/atividades_page.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 

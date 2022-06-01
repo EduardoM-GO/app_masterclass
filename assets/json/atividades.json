@@ -6,17 +6,22 @@
         "linkGit": "",
         "exercicios": [{
                 "id": 1,
-                "nome": "Exercícios 01"
+                "nome": "Animações implícitas - Exercício 1"
             },
             {
                 "id": 2,
-                "nome": "Exercícios 02"
+                "nome": "Animações implícitas - Exercício 2"
             },
             {
                 "id": 3,
-                "nome": "Exercícios 03"
+                "nome": "Animações Controladas - Exercício 1"
+            },
+            {
+                "id": 4,
+                "nome": "Animações Controladas - Exercício 2"
             }
         ]
+
     },
     {
         "id": "2",
@@ -26,20 +31,15 @@
         "linkGit": "",
         "exercicios": [{
                 "id": 1,
-                "nome": "Exercícios 01"
+                "nome": "Get your Money Under Control",
+                "rota": "/mockup/your_money"
             },
             {
                 "id": 2,
-                "nome": "Exercícios 02"
-            },
-            {
-                "id": 3,
-                "nome": "Exercícios 03"
-            },
-            {
-                "id": 4,
-                "nome": "Exercícios 04"
+                "nome": "Tinder",
+                "rota": "/mockup/tinder"
             }
+
         ]
     },
     {
@@ -63,7 +63,7 @@
         "titulo": "Design Patterns",
         "pathIcon": "assets/logos/Icon material-toys.png",
         "descricao": "DESAFIO: Faça uma validação de CPF usando apenas Dart(e matemárica).\nLogo após, crie uma tela executando a regra de validação.",
-        "linkGit": "",
+        "linkGit": "EduardoM-GO/app_masterclass/tree/main/lib/modules/exercicios/pages/design_patterns",
         "exercicios": [{
                 "id": 1,
                 "nome": "Validação de CPF",

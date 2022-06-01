@@ -2,6 +2,7 @@ import 'package:app_masterclass/modules/exercicios/presentation/execicios_page.d
 import 'package:app_masterclass/modules/home/domain/entities/atividade.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class CardWidget extends StatelessWidget {
   final Atividade atividade;
@@ -78,22 +79,39 @@ class CardWidget extends StatelessWidget {
             Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Icon(
-                  FontAwesomeIcons.github,
-                  color: Theme.of(context).highlightColor,
-                  size: 20,
+                Expanded(
+                  child: TextButton(
+                    onPressed: () => launchUrl(
+                      Uri(
+                        scheme: 'https',
+                        host: 'github.com',
+                        path: atividade.linkGit,
+                      ),
+                    ),
+                    child: Row(
+                      children: [
+                        Icon(
+                          FontAwesomeIcons.github,
+                          color: Theme.of(context).highlightColor,
+                          size: 20,
+                        ),
+                        const SizedBox(
+                          width: 13.0,
+                        ),
+                        Text(
+                          'Acessar código fonte',
+                          style: Theme.of(context)
+                              .textTheme
+                              .subtitle1
+                              ?.copyWith(
+                                  color: Theme.of(context).highlightColor),
+                        ),
+                      ],
+                    ),
+                  ),
                 ),
                 const SizedBox(
                   width: 13.0,
-                ),
-                Expanded(
-                  child: Text(
-                    'Acessar código fonte',
-                    style: Theme.of(context)
-                        .textTheme
-                        .subtitle1
-                        ?.copyWith(color: Theme.of(context).highlightColor),
-                  ),
                 ),
                 ElevatedButton(
                   onPressed: () => Navigator.of(context).pushNamed(

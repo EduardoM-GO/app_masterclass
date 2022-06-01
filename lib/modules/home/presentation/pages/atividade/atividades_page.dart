@@ -1,6 +1,6 @@
 import 'package:app_masterclass/modules/home/domain/entities/atividade.dart';
 import 'package:app_masterclass/modules/home/domain/user_case/get_atividades.dart';
-import 'package:app_masterclass/modules/home/presentation/widgets/card_widget.dart';
+import 'package:app_masterclass/modules/home/presentation/pages/atividade/widgets/card_widget.dart';
 import 'package:flutter/material.dart';
 
 class AtividadesPage extends StatelessWidget {
