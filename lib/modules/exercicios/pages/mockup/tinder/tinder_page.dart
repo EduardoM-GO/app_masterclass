@@ -255,12 +255,13 @@ class TinderPage extends StatelessWidget {
                 ),
                 const SizedBox(height: 4.0),
                 TextButton(
-                    onPressed: () {},
-                    child: Text(
-                      'Trouble Signing In?',
-                      style: GoogleFonts.montserrat(
-                          color: Colors.white, fontSize: 12),
-                    ))
+                  onPressed: () {},
+                  child: Text(
+                    'Trouble Signing In?',
+                    style: GoogleFonts.montserrat(
+                        color: Colors.white, fontSize: 12),
+                  ),
+                )
               ],
             ),
           ),

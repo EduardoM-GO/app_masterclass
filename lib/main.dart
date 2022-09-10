@@ -1,8 +1,11 @@
 import 'package:app_masterclass/core/routes/routes_app.dart';
 import 'package:app_masterclass/core/themes/theme_custom.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   runApp(const MainWidget());
 }
 
