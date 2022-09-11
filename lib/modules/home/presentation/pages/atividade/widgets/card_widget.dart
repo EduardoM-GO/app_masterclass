@@ -1,8 +1,7 @@
 import 'package:app_masterclass/modules/exercicios/presentation/execicios_page.dart';
 import 'package:app_masterclass/modules/home/domain/entities/atividade.dart';
+import 'package:app_masterclass/modules/home/widgets/acessar_codigo_fonte_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class CardWidget extends StatelessWidget {
   final Atividade atividade;
@@ -80,33 +79,11 @@ class CardWidget extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Expanded(
-                  child: TextButton(
-                    onPressed: () => launchUrl(
-                      Uri(
-                        scheme: 'https',
-                        host: 'github.com',
-                        path: atividade.linkGit,
-                      ),
-                    ),
-                    child: Row(
-                      children: [
-                        Icon(
-                          FontAwesomeIcons.github,
-                          color: Theme.of(context).highlightColor,
-                          size: 20,
-                        ),
-                        const SizedBox(
-                          width: 13.0,
-                        ),
-                        Text(
-                          'Acessar código fonte',
-                          style: Theme.of(context)
-                              .textTheme
-                              .subtitle1
-                              ?.copyWith(
-                                  color: Theme.of(context).highlightColor),
-                        ),
-                      ],
+                  child: AcessarCodigoFonteWidget(
+                    url: Uri(
+                      scheme: 'https',
+                      host: 'github.com',
+                      path: atividade.linkGit,
                     ),
                   ),
                 ),

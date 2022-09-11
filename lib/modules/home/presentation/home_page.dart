@@ -1,4 +1,5 @@
 import 'package:app_masterclass/modules/home/presentation/pages/atividade/atividades_page.dart';
+import 'package:app_masterclass/modules/home/presentation/pages/github/github_page.dart';
 import 'package:app_masterclass/modules/home/presentation/pages/sobre_dev/sobre_dev_page.dart';
 import 'package:app_masterclass/modules/widgets/app_bar_custom.dart';
 import 'package:app_masterclass/modules/widgets/bottom_navigation_bar_custom.dart';
@@ -50,9 +51,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
           controller: _tabController,
           children: const [
             AtividadesPage(),
-            Center(
-              child: CircularProgressIndicator(),
-            ),
+            GithubPage(),
             SobreDevPage(),
           ],
         ),

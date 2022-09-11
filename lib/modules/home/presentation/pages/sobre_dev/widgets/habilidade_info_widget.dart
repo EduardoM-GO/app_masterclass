@@ -1,5 +1,6 @@
-import 'package:app_masterclass/modules/home/presentation/pages/sobre_dev/domian/entities/habilidade.dart';
 import 'package:flutter/material.dart';
+
+import '../../../../domain/entities/habilidade.dart';
 
 class HabilidadeInfoWidget extends StatefulWidget {
   final Habilidade habilidade;

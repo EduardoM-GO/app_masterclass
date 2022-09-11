@@ -1,4 +1,5 @@
-import 'package:app_masterclass/modules/home/presentation/pages/sobre_dev/domian/entities/habilidade.dart';
+
+import 'package:app_masterclass/modules/home/domain/entities/habilidade.dart';
 import 'package:app_masterclass/modules/home/presentation/pages/sobre_dev/widgets/habilidade_info_widget.dart';
 import 'package:flutter/material.dart';
 

@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 
 class BottomNavigationParametro {
@@ -35,7 +37,8 @@ class _BottomNavigationBarCustomState extends State<BottomNavigationBarCustom> {
   }
 
   //Obtem a localização da widget da opção selecionada
-  double getPosicaoX(int index) {
+  Future<double> getPosicaoX(int index) async {
+    await Future.delayed(const Duration(milliseconds: 100));
     if (widget.opcoesKeys[index].currentContext == null) return 0.0;
     final RenderBox renderBox = widget.opcoesKeys[index].currentContext!
         .findRenderObject() as RenderBox;
@@ -107,18 +110,25 @@ class _BottomNavigationBarCustomState extends State<BottomNavigationBarCustom> {
       padding: const EdgeInsets.all(19.0),
       child: Stack(
         children: [
-          AnimatedPositioned(
-            duration: const Duration(milliseconds: 200),
-            left: getPosicaoX(widget.controller.index),
-            child: Container(
-              width: 60,
-              height: 32,
-              alignment: Alignment.center,
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
-                  color: Theme.of(context).cardColor),
-            ),
-          ),
+          FutureBuilder<double>(
+              future: getPosicaoX(widget.controller.index),
+              builder: (context, snap) {
+                if (!snap.hasData) {
+                  return Container();
+                }
+                return AnimatedPositioned(
+                  duration: const Duration(milliseconds: 200),
+                  left: snap.data,
+                  child: Container(
+                    width: 60,
+                    height: 32,
+                    alignment: Alignment.center,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20),
+                        color: Theme.of(context).cardColor),
+                  ),
+                );
+              }),
           Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: getOpcoes()),

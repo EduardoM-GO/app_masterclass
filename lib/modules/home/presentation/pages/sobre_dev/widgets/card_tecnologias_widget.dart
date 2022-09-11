@@ -1,5 +1,6 @@
-import 'package:app_masterclass/modules/home/presentation/pages/sobre_dev/domian/entities/tecnologia.dart';
 import 'package:flutter/material.dart';
+
+import '../../../../domain/entities/tecnologia.dart';
 
 class CardTecnologiasWidget extends StatelessWidget {
   final Tecnologia tecnologia;
