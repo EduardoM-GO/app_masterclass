@@ -1,6 +1,8 @@
-import 'package:app_masterclass/main.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:get_it/get_it.dart';
+
+import '../../core/themes/cubit/theme_cubit.dart';
 
 class AppBarCustom extends StatelessWidget with PreferredSizeWidget {
   final Widget? leading;
@@ -44,7 +46,8 @@ class AppBarCustom extends StatelessWidget with PreferredSizeWidget {
       ),
       actions: [
         IconButton(
-          onPressed: () => MainWidget.of(context)?.changeTheme(),
+          onPressed: () =>
+              GetIt.I.get<ThemeCubit>().changeTheme(context: context),
           icon: const Icon(FontAwesomeIcons.solidMoon),
         ),
       ],

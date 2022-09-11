@@ -1,40 +1,36 @@
 import 'package:app_masterclass/core/routes/routes_app.dart';
+import 'package:app_masterclass/core/themes/cubit/theme_cubit.dart';
 import 'package:app_masterclass/core/themes/theme_custom.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:get_it/get_it.dart';
+
+import 'core/injector/get_it_injector.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
-  runApp(const MainWidget());
-}
-
-class MainWidget extends StatefulWidget {
-  const MainWidget({Key? key}) : super(key: key);
-
-  @override
-  State<MainWidget> createState() => _MainWidgetState();
-
-  static _MainWidgetState? of(BuildContext context) =>
-      context.findAncestorStateOfType<_MainWidgetState>();
-}
-
-class _MainWidgetState extends State<MainWidget> {
-  ThemeMode _themeMode = ThemeMode.system;
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      onGenerateRoute: RoutesApp.onGenerateRoute,
-      themeMode: _themeMode,
-      theme: ThemeCustom.lightTheme,
-      darkTheme: ThemeCustom.darkTheme,
-    );
-  }
-
-  void changeTheme() {
-    setState(() {
-      _themeMode =
-          _themeMode == ThemeMode.dark ? ThemeMode.light : ThemeMode.dark;
-    });
-  }
+  GetItInjector();
+  final ThemeCubit bloc = GetIt.I.get<ThemeCubit>();
+  bloc.getTheme();
+  runApp(
+    BlocBuilder<ThemeCubit, ThemeState>(
+      bloc: bloc,
+      builder: (context, state) {
+        late final ThemeMode mode;
+        if (state is ThemeSuccessState) {
+          mode = state.themeMode;
+        } else {
+          mode = ThemeMode.system;
+        }
+        return MaterialApp(
+          onGenerateRoute: RoutesApp.onGenerateRoute,
+          themeMode: mode,
+          theme: ThemeCustom.lightTheme,
+          darkTheme: ThemeCustom.darkTheme,
+        );
+      },
+    ),
+  );
 }
